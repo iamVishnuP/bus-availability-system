@@ -4,6 +4,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.js';
 import busRoutes from './routes/buses.js';
+import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config();
 
@@ -23,11 +25,21 @@ app.use('/api/auth', authRoutes);
 app.use('/api/buses', busRoutes);
 
 // Health check
-app.get('/', (req, res) => {
-  res.json({ message: 'Bus Availability System API is running' });
-});
+//app.get('/', (req, res) => {
+ // res.json({ message: 'Bus Availability System API is running' });
+//});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
+});
+//chatgpt code
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve React frontend
+app.use(express.static(path.join(__dirname, "../client/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
