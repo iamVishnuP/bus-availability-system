@@ -138,10 +138,15 @@ The system calculates the current bus location based on:
 
 Backend `.env` file:
 ```
-MONGO_URI=mongodb+srv://damodhar_bus:bus123@buscluster.pyoh5dj.mongodb.net/busAvailability
-JWT_SECRET=your_super_secret_jwt_key_change_in_production_2024
+## Environment Variables
+
+Create a `.env` file in the server folder and add the following variables:
+
+```env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
 PORT=5000
-```
+
 
 ## Project Structure
 
