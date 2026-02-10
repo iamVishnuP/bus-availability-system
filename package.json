@@ -1,8 +1,9 @@
 {
-    "name": "bus-availability-system",
-    "private": true,
-    "scripts": {
-        "build": "cd client && npm install && npm run build",
-        "start": "node server/index.js"
-    }
+  "name": "bus-availability-system",
+  "private": true,
+  "scripts": {
+    "build": "cd client && npm install && npm run build",
+    "start": "cd server && npm install && node index.js"
+  }
 }
+
